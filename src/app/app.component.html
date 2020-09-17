@@ -2,10 +2,16 @@
   <div class="box-container">
     <div class="box-title">{{ title }}</div>
     <div class="box-body">
-      <form class="form-container" action="#" method="get">
-        <input class="form-input" type="text" name="originalLink" id="originalLink" required>
+      <form class="form-container" #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <input class="form-input" type="text" name="originalLink" id="originalLink" required ngModel #originalLink="ngModel">
         <button class="form-submit" type="submit">Shorten URL</button>
       </form>
+      <div class="shorten-box" *ngIf="shortLinks.length > 0">
+        <div class="box-title">Your Shorten Link(s)</div>
+        <ul>
+          <li *ngFor="let link of shortLinks"><a href="{{windowLocation}}{{link._id}}">{{windowLocation}}{{link._id}}</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </main>

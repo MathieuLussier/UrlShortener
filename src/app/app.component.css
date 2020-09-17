@@ -56,3 +56,8 @@
   font-size: .8rem;
   white-space: nowrap;
 }
+
+.shorten-box {
+  border: .3rem solid #00B4CC;
+  border-radius: .2em;
+}

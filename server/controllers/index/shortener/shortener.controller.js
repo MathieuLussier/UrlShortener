@@ -8,6 +8,7 @@ module.exports.createShortLink = (req, res, next) => {
   newUrlShortener.save().then(() => {
     return res.status(200).json(newUrlShortener);
   }).catch(err => {
+    console.error(err);
     return res.status(500).json({ error: err, message: 'Something went wrong !'});
   });
 };
@@ -18,8 +19,8 @@ module.exports.getOriginalLink = (req, res, next) => {
   const query = UrlShortener.findById(shortid);
 
   query.exec().then(data => {
-    return res.status(200).json(data);
+    return res.status(200).redirect(data.originalLink);
   }).catch(err => {
-    return res.status(404).json({ error: err, message: 'Url Shortener Not Found !'});
+    return res.status(404).send('Url Shortener Not Found !');
   });
 };
