@@ -23,7 +23,8 @@ export class HttpErrorInterceptor implements HttpInterceptor {
             this.shortenerService.httpErrorEmitter.next(errorMsg);
           }
           else {
-            errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
+            console.log(error);
+            errorMsg = `Error Code: ${error.status},  Message: ${error.error.message}`;
             this.shortenerService.httpErrorEmitter.next(errorMsg);
           }
           console.log(errorMsg);
