@@ -12,7 +12,6 @@ const app = express();
 const port = process.env.SERVER_PORT || 3000;
 const production = (process.env.PRODUCTION === 'true');
 const staticDistRoot = path.join(__dirname, '../', 'dist', 'UrlShortener');
-console.log(staticDistRoot);
 
 const options = {
   useUnifiedTopology: true,
@@ -50,8 +49,6 @@ process.on('SIGINT', function() {
     process.exit(0);
   });
 });
-
-const whitelist = ['https://urlshortener.mathieulussier.ca/', 'http://urlshortener.mathieulussier.ca/', 'http://localhost:3000'];
 
 const corsOptions = {
   origin: 'https://urlshortener.mathieulussier.ca/',
