@@ -9,7 +9,7 @@
       <div class="shorten-box" *ngIf="shortLinks.length > 0">
         <div class="box-title">Your Shorten Link(s)</div>
         <ul>
-          <li *ngFor="let link of shortLinks"><a href="{{windowLocation}}{{link._id}}">{{windowLocation}}{{link._id}}</a></li>
+          <li *ngFor="let link of shortLinks">Original Link: <a href="{{link.originalLink}}">{{link.originalLink}}</a> Shorten Link: <a href="{{windowLocation}}{{link._id}}">{{windowLocation}}{{link._id}}</a></li>
         </ul>
       </div>
     </div>

@@ -17,7 +17,7 @@ export class AppComponent {
 
   async onSubmit(form: NgForm) {
     const res: any = await this.shortenerService.createNewUrlShortener(form.value.originalLink);
-    if (typeof res === 'object') {
+    if (typeof res === 'object' && 'originalLink' in res && '_id' in res) {
       this.shortLinks.push(res);
     }
     form.reset();
