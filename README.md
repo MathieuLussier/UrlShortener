@@ -1,27 +1,41 @@
 # UrlShortener
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.12.
+UrlShortener is an application to shortern your url and share the shortened url.
 
-## Development server
+  - Enter your url to be shorten.
+  - See your url shortened.
+  - Share and enjoy!
+ 
+[DEMO](http://urlshortener.mathieulussier.ca/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Installation
 
-## Code scaffolding
+clone the project from github then use the package manager [npm](https://www.npmjs.com/) to install UrlShortener dependencies.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+npm install
+```
 
-## Build
+## Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Use npm scripts to start the project in development mode.
 
-## Running unit tests
+```bash
+npm run dev
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Todos
 
-## Running end-to-end tests
+  - Evolving the ui.
+  - Adding some sort of local-storage for remembering url that got shortened from the same user.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Technologies
 
-## Further help
+* [Angular] - Client Web APP Framework
+* [node.js] - Runtime environment that executes JavaScript code outside a web browser
+* [Express] - Node.js Backend Framework
+* [MongoDb] - Document-Oriented Database Program
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
