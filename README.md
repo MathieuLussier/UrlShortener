@@ -28,6 +28,7 @@ npm run dev
 
   - Evolving the ui.
   - Adding some sort of local-storage for remembering url that got shortened from the same user.
+  - Reworking http error handling from client
 
 ### Technologies
 
