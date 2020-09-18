@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  backendUrl: 'https://backend-urlshortener.mathieulussier.ca/api'
+  backendUrl: 'https://urlshortener.mathieulussier.ca/api'
 };

@@ -4,12 +4,15 @@ const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
+const path = require('path');
 
 const express = require('express');
 const app = express();
 
 const port = process.env.SERVER_PORT || 3000;
 const production = (process.env.PRODUCTION === 'true');
+const staticDistRoot = path.join(__dirname, '../', 'dist', 'UrlShortener');
+console.log(staticDistRoot);
 
 const options = {
   useUnifiedTopology: true,
@@ -48,16 +51,11 @@ process.on('SIGINT', function() {
   });
 });
 
-const whitelist = ['http://mathieulussier.ca', 'https://mathieulussier.ca', 'http://www.mathieulussier.ca', 'https://www.mathieulussier.ca'];
+const whitelist = ['https://urlshortener.mathieulussier.ca/', 'http://urlshortener.mathieulussier.ca/', 'http://localhost:3000'];
 
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
+  origin: 'https://urlshortener.mathieulussier.ca/',
+  optionsSuccessStatus: 200
 };
 
 app.use(helmet());
@@ -72,7 +70,13 @@ app.use(cookieParser());
 
 app.use(morgan('dev'));
 
-app.use('/api/index', require('./routes/index.route'));
+app.use(express.static(staticDistRoot));
+
+app.get('/', (req, res, next) => {
+  res.status(200).sendFile(path.resolve(`${staticDistRoot}\\index.html`));
+});
+
+app.use(require('./routes/shortener.route'));
 
 app.all("*", function(req, res) {
   return res.status(404).json({

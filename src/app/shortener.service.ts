@@ -13,7 +13,7 @@ export class ShortenerService {
 
   public async createNewUrlShortener(originalLink: string) {
     return new Promise((resolve, reject) => {
-      this.httpClient.post(`${environment.backendUrl}/index/shortener/create`, { originalLink }).subscribe((data) => {
+      this.httpClient.post(`${environment.backendUrl}/shortener/create`, { originalLink }).subscribe((data) => {
         resolve(data);
       }, err => {
         reject(err);

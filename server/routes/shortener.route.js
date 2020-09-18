@@ -5,7 +5,7 @@ const indexController = require('../controllers/index/index.controller');
 
 const urlChecker = require('../middlewares/urlChecker');
 
-router.post('/shortener/create', urlChecker.checkOriginalLink, indexController.shortener.createShortLink);
-router.get('/shortener/get/:id', indexController.shortener.getOriginalLink);
+router.post('/api/shortener/create', urlChecker.checkOriginalLink, indexController.shortener.createShortLink);
+router.get('/:id', indexController.shortener.redirectToOriginalLink);
 
 module.exports = router;

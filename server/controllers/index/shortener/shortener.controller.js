@@ -13,13 +13,13 @@ module.exports.createShortLink = (req, res, next) => {
   });
 };
 
-module.exports.getOriginalLink = (req, res, next) => {
+module.exports.redirectToOriginalLink = (req, res, next) => {
   const shortid = req.params.id;
 
   const query = UrlShortener.findById(shortid);
 
   query.exec().then(data => {
-    return res.status(200).redirect(data.originalLink);
+    return res.status(302).redirect(data.originalLink);
   }).catch(err => {
     return res.status(404).send('Url Shortener Not Found !');
   });
