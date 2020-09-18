@@ -15,3 +15,7 @@
     </div>
   </div>
 </main>
+<div class="error-message-box" *ngIf="errorMessage && errorMessage !== ''">
+  <div class="error-message-title box-title">Error occurred !</div>
+  <div class="error-message-text">{{ errorMessage }}</div>
+</div>

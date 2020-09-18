@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../environments/environment';
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShortenerService {
+  httpErrorEmitter: Subject<string> = new Subject<string>();
 
   constructor(private httpClient: HttpClient) { }
 
@@ -17,5 +19,9 @@ export class ShortenerService {
         reject(err);
       });
     });
+  }
+
+  public onHttpErrorEvent(event) {
+    this.httpErrorEmitter.next(event);
   }
 }

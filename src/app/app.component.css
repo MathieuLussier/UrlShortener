@@ -67,3 +67,24 @@
 li {
   list-style: none;
 }
+
+.error-message-box {
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.error-message-title, .error-message-text {
+  color: #a94442;
+}
+
+.error-message-title {
+  font-weight: 800;
+}
+
+.error-message-text {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
